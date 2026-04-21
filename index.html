@@ -860,14 +860,14 @@
             <div class="profile-card">
               <div class="profile-name">ホブス みさ</div>
               <div class="profile-name-en">Misa Hobbs</div>
-              <div class="profile-desc">
+              <div class="profile-desc" id="misa-profile">
                 英検準1級／指導歴28年（高校教員経験あり）／3,000名以上の指導実績。英語コーチ養成講座「Eキャリ」認定講師。LINEマーケティングコンサルタントとして企業のSNS戦略も支援。
               </div>
             </div>
             <div class="profile-card">
               <div class="profile-name">ホブスマーティ</div>
               <div class="profile-name-en">Marty Hobbs</div>
-              <div class="profile-desc">
+              <div class="profile-desc" id="marty-profile">
                 アメリカ・シカゴ出身のネイティブ英語スピーカー・元エンジニア。中上級者向けビジネス英語を対面・オンラインで指導。英語オンリー環境でのトレーニング（朝活など）を提供。
               </div>
             </div>
@@ -1110,6 +1110,41 @@
     </div>
   </footer>
 
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    // Netlify Identity redirect
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+
+    // Load editable content from JSON
+    fetch('/data/content.json')
+      .then(r => r.json())
+      .then(content => {
+        // Profiles
+        const misaEl = document.getElementById('misa-profile');
+        const martyEl = document.getElementById('marty-profile');
+        if (misaEl && content.misa_profile) misaEl.textContent = content.misa_profile;
+        if (martyEl && content.marty_profile) martyEl.textContent = content.marty_profile;
+        // Testimonials
+        const cards = document.querySelectorAll('.voice-card');
+        if (content.testimonials) {
+          content.testimonials.forEach((t, i) => {
+            if (cards[i]) {
+              cards[i].querySelector('.voice-text').textContent = t.text;
+              cards[i].querySelector('.voice-author span').textContent = t.author;
+            }
+          });
+        }
+      })
+      .catch(() => {}); // ローカル表示時はスキップ
+  </script>
   <script>
     // Fade-up scroll animation
     const observer = new IntersectionObserver((entries) => {

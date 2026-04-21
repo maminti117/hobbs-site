@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: images
+public_folder: /images
+
+locale: ja
+
+collections:
+  - name: site
+    label: サイトコンテンツ
+    files:
+      - name: content
+        label: テキスト編集
+        file: data/content.json
+        fields:
+          - label: "みさ プロフィール"
+            name: misa_profile
+            widget: text
+          - label: "マーティ プロフィール"
+            name: marty_profile
+            widget: text
+          - label: "お客様の声"
+            name: testimonials
+            widget: list
+            fields:
+              - label: コメント
+                name: text
+                widget: text
+              - label: お客様
+                name: author
+                widget: string
