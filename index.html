@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hobbs Partners | 言葉と文化の壁を越え、世界へ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d2461;
+      --navy-dark: #081840;
+      --navy-mid: #1a3a7a;
+      --sky: #4a9fd4;
+      --sky-light: #e8f4fc;
+      --gold: #c9a227;
+      --gold-light: #f5e9c0;
+      --white: #ffffff;
+      --gray: #f7f8fa;
+      --gray-mid: #e8eaed;
+      --text: #1a1a2e;
+      --text-mid: #4a5568;
+      --text-light: #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      line-height: 1.8;
+      background: var(--white);
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(8, 24, 64, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201, 162, 39, 0.3);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .logo-en {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+    .logo-ja {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy-dark) !important;
+      font-weight: 700;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: #e0b52a !important; color: var(--navy-dark) !important; }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/photo3.jpeg') center center / cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(8, 24, 64, 0.82) 0%,
+        rgba(13, 36, 97, 0.65) 50%,
+        rgba(74, 159, 212, 0.25) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy-dark);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      padding: 0.35rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2.5rem;
+      max-width: 560px;
+      line-height: 1.9;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    .stat {
+      color: var(--white);
+      border-left: 3px solid var(--gold);
+      padding-left: 1rem;
+    }
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.75);
+      margin-top: 0.25rem;
+      letter-spacing: 0.08em;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy-dark);
+      padding: 0.9rem 2.2rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #e0b52a; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 0.9rem 2.2rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      border: 1.5px solid rgba(255,255,255,0.6);
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--white); color: var(--white); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+    }
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.4);
+      animation: scrollLine 1.6s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: 1.2rem;
+    }
+    .section-title span { color: var(--gold); }
+    .section-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 2.5rem;
+    }
+    .section-desc {
+      color: var(--text-mid);
+      font-size: 0.95rem;
+      line-height: 2;
+      max-width: 640px;
+    }
+
+    /* ===== ABOUT ===== */
+    #about { background: var(--gray); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-images {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+      border: none;
+    }
+    .about-img-sub {
+      position: absolute;
+      width: 55%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      bottom: -2rem;
+      right: -2rem;
+      border: 6px solid var(--white);
+      box-shadow: 0 8px 32px rgba(13,36,97,0.18);
+    }
+    .about-text { padding-right: 1rem; }
+    .about-profiles {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--gray-mid);
+    }
+    .profile-card {
+      flex: 1;
+    }
+    .profile-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .profile-name-en {
+      font-size: 0.7rem;
+      color: var(--sky);
+      letter-spacing: 0.12em;
+      margin-bottom: 0.6rem;
+    }
+    .profile-desc {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    /* ===== SERVICES ===== */
+    #services { background: var(--white); }
+
+    .services-intro {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 4rem;
+    }
+    .services-intro .section-divider { margin: 0 auto 2.5rem; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: box-shadow 0.3s, transform 0.2s;
+    }
+    .service-card:hover {
+      box-shadow: 0 12px 40px rgba(13,36,97,0.12);
+      transform: translateY(-4px);
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gold);
+    }
+    .service-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--sky-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.4rem;
+    }
+    .service-title-en {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      color: var(--sky);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .service-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: 1.2rem;
+    }
+    .service-desc {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    .service-items {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.8rem;
+    }
+    .service-items li {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      padding: 0.35rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      border-bottom: 1px solid var(--gray-mid);
+    }
+    .service-items li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .btn-navy {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.7rem 1.5rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-navy:hover { background: var(--navy-mid); }
+
+    /* ===== MEDIA ===== */
+    #media { background: var(--navy); }
+
+    #media .section-title { color: var(--white); }
+    #media .section-desc { color: rgba(255,255,255,0.7); }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .media-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 2rem;
+      text-align: center;
+    }
+    .media-num {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .media-unit {
+      font-size: 1rem;
+      color: var(--gold);
+    }
+    .media-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.6rem;
+      line-height: 1.6;
+    }
+    .media-tss {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      background: rgba(201, 162, 39, 0.12);
+      border: 1px solid rgba(201, 162, 39, 0.3);
+      padding: 1.5rem 2rem;
+      margin-top: 1rem;
+    }
+    .media-tss-badge {
+      background: var(--gold);
+      color: var(--navy-dark);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.6rem 1.2rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .media-tss-text {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+    }
+
+    /* ===== VOICE ===== */
+    #voice { background: var(--gray); }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .voice-card {
+      background: var(--white);
+      padding: 2rem;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 2px 12px rgba(13,36,97,0.06);
+    }
+    .voice-text {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 2;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .voice-text::before { content: '「'; color: var(--gold); }
+    .voice-text::after { content: '」'; color: var(--gold); }
+    .voice-author {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+    .voice-author span {
+      color: var(--navy);
+      font-size: 0.88rem;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    /* ===== PHOTO SECTION ===== */
+    #gallery {
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 340px;
+    }
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    /* ===== CONTACT ===== */
+    #contact { background: var(--white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+    .contact-form-wrap {}
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.06em;
+    }
+    .form-group label .req {
+      color: var(--gold);
+      margin-left: 0.4rem;
+      font-size: 0.7rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--gray-mid);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text);
+      background: var(--gray);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--sky);
+      background: var(--white);
+    }
+    .form-group textarea { height: 140px; resize: vertical; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-submit {
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      width: 100%;
+      padding: 1rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .form-submit:hover { background: var(--navy-mid); }
+    .form-submit::after {
+      content: ' →';
+      color: var(--gold);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.65);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-brand {}
+    .footer-logo-en {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .footer-logo-ja {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.2em;
+      margin-bottom: 1.2rem;
+    }
+    .footer-brand-desc {
+      font-size: 0.8rem;
+      line-height: 1.9;
+    }
+    .footer-col-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li { margin-bottom: 0.6rem; }
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 2rem;
+      font-size: 0.72rem;
+    }
+    .footer-copy { color: rgba(255,255,255,0.35); }
+    .footer-sns {
+      display: flex;
+      gap: 1rem;
+    }
+    .sns-btn {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .sns-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .voice-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-img-sub { right: 1rem; bottom: -1.5rem; }
+      .about-profiles { flex-direction: column; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .voice-grid { grid-template-columns: 1fr; }
+      .media-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-image { display: none; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+
+      #gallery { grid-template-columns: repeat(2, 1fr); height: 400px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SCROLL ANIMATION ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#top" class="logo">
+        <span class="logo-en">HOBBS PARTNERS</span>
+        <span class="logo-ja">ホブス夫妻 公式サイト</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#media">実績</a></li>
+        <li><a href="#voice">お客様の声</a></li>
+        <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
+      </ul>
+      <button class="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag fade-up">GLOBAL × LOCAL</div>
+      <h1 class="fade-up">
+        言葉と文化の壁を越え、<br>
+        <em>ワンランク上のサービス</em>を<br>
+        世界へ。
+      </h1>
+      <p class="hero-sub fade-up">
+        日米の視点とグローバルな経験を活かし、<br>
+        企業のインバウンド対応・英語コーチング・<br>
+        経営支援を通じて、あなたのビジネスを世界水準へ導きます。
+      </p>
+      <div class="hero-stats fade-up">
+        <div class="stat">
+          <div class="stat-num">28<span style="font-size:1rem">年</span></div>
+          <div class="stat-label">指導経験</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3,000<span style="font-size:1rem">名+</span></div>
+          <div class="stat-label">指導実績</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">TV</div>
+          <div class="stat-label">TSSテレビ 取材紹介</div>
+        </div>
+      </div>
+      <div class="hero-btns fade-up">
+        <a href="#services" class="btn-primary">サービスを見る</a>
+        <a href="#contact" class="btn-outline">無料相談を申し込む</a>
+      </div>
+    </div>
+    <div class="scroll-hint">SCROLL</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images fade-up">
+          <img src="images/photo1.jpeg" alt="ホブス夫妻 - 公園にて" class="about-img-main">
+          <img src="images/photo2.jpeg" alt="ホブス夫妻 - カフェにて" class="about-img-sub">
+        </div>
+        <div class="about-text fade-up">
+          <p class="section-label">About Us</p>
+          <h2 class="section-title">日本と世界を<br><span>つなぐ</span>パートナー</h2>
+          <div class="section-divider"></div>
+          <p class="section-desc">
+            私たちホブス夫妻は、日米の文化的背景を持つ二人が共に歩んできた経験を活かし、企業と個人の「グローバル化」を支援しています。
+          </p>
+          <br>
+          <p class="section-desc">
+            インバウンド対応・英語教育・経営支援の3軸で、クライアントの課題に寄り添い、確かな成果へと導くサポートを提供します。言語の違いを超えた真のコミュニケーションこそが、ビジネスの可能性を広げると私たちは信じています。
+          </p>
+          <div class="about-profiles">
+            <div class="profile-card">
+              <div class="profile-name">ホブス みさ</div>
+              <div class="profile-name-en">HOBBS Misa</div>
+              <div class="profile-desc">
+                英検準1級／指導歴28年（高校教員経験あり）／3,000名以上の指導実績。英語コーチ養成講座「Eキャリ」認定講師。LINEマーケティングコンサルタントとして企業のSNS戦略も支援。
+              </div>
+            </div>
+            <div class="profile-card">
+              <div class="profile-name">ホブス マーティン</div>
+              <div class="profile-name-en">HOBBS Martin</div>
+              <div class="profile-desc">
+                アメリカ・シカゴ出身のネイティブ英語スピーカー。中上級者向けビジネス英語を対面・オンラインで指導。英語オンリー環境でのトレーニング（朝活など）を提供。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="services-intro fade-up">
+        <p class="section-label">Our Services</p>
+        <h2 class="section-title">3つの専門サービス</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc">
+          法人向け・個人向け、そして経営支援。<br>ホブス夫妻の多様な専門性が、あなたのニーズに応えます。
+        </p>
+      </div>
+      <div class="services-grid">
+        <!-- Service A -->
+        <div class="service-card fade-up">
+          <div class="service-num">SERVICE A</div>
+          <div class="service-icon">🌏</div>
+          <div class="service-title-en">INBOUND SUPPORT</div>
+          <h3 class="service-title">法人向け<br>インバウンド接客支援</h3>
+          <p class="service-desc">
+            外国人観光客・ビジネス客への対応力を強化。ネイティブ監修による高品質なサービスで、御社のグローバル対応力を底上げします。
+          </p>
+          <ul class="service-items">
+            <li>インバウンド接客マニュアル作成</li>
+            <li>スタッフ向け英語接客研修</li>
+            <li>ネイティブ監修の翻訳・コンテンツ制作</li>
+            <li>外国人対応フロー構築サポート</li>
+          </ul>
+          <a href="#contact" class="btn-navy">詳細・お問い合わせ</a>
+        </div>
+        <!-- Service B -->
+        <div class="service-card fade-up">
+          <div class="service-num">SERVICE B</div>
+          <div class="service-icon">🎯</div>
+          <div class="service-title-en">ENGLISH COACHING</div>
+          <h3 class="service-title">個人向け<br>英語コーチング</h3>
+          <p class="service-desc">
+            指導歴28年のネイティブコーチが、あなたの目標に合わせたオーダーメイドレッスンを提供。仕事・旅行・留学など目的に応じたプログラムです。
+          </p>
+          <ul class="service-items">
+            <li>ビジネス英語・TOEIC対策</li>
+            <li>日常英会話・発音改善</li>
+            <li>オンライン・対面 選択可</li>
+            <li>体験レッスン受付中</li>
+          </ul>
+          <a href="#contact" class="btn-navy">詳細・お問い合わせ</a>
+        </div>
+        <!-- Service C -->
+        <div class="service-card fade-up">
+          <div class="service-num">SERVICE C</div>
+          <div class="service-icon">📈</div>
+          <div class="service-title-en">BUSINESS CONSULTING</div>
+          <h3 class="service-title">経営・<br>Webマーケティング支援</h3>
+          <p class="service-desc">
+            経営の実戦知見とグローバル視点を融合した伴走型コンサルティング。Webマーケティング戦略から事業計画まで、成果に直結するサポートを提供します。
+          </p>
+          <ul class="service-items">
+            <li>Webマーケティング戦略立案・実行</li>
+            <li>SNS・コンテンツ運用支援</li>
+            <li>グローバル視点での経営アドバイス</li>
+            <li>月次伴走コンサルティング</li>
+          </ul>
+          <a href="#contact" class="btn-navy">詳細・お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA / ACHIEVEMENTS -->
+  <section id="media">
+    <div class="container">
+      <div class="fade-up">
+        <p class="section-label" style="color:var(--gold)">Media & Track Record</p>
+        <h2 class="section-title">実績・メディア掲載</h2>
+        <div class="section-divider"></div>
+        <p class="section-desc" style="color:rgba(255,255,255,0.7)">
+          長年にわたる豊富な実績と、メディア・企業様からの信頼が私たちの誇りです。
+        </p>
+      </div>
+      <div class="media-grid fade-up">
+        <div class="media-card">
+          <div class="media-num">28<span class="media-unit">年</span></div>
+          <div class="media-label">英語指導・グローバル<br>コンサルティング経験</div>
+        </div>
+        <div class="media-card">
+          <div class="media-num">3,000<span class="media-unit">名+</span></div>
+          <div class="media-label">英語コーチング<br>指導実績</div>
+        </div>
+        <div class="media-card">
+          <div class="media-num">多</div>
+          <div class="media-label">法人・企業向け<br>研修・コンサル実績</div>
+        </div>
+        <div class="media-tss">
+          <div class="media-tss-badge">📺 TSSテレビ</div>
+          <div class="media-tss-text">
+            広島のTSSテレビ（テレビ新広島）にて取材・紹介。日米夫婦のグローバルな活動と英語教育への取り組みが注目されました。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <div id="gallery">
+    <div class="gallery-item">
+      <img src="images/photo1.jpeg" alt="ホブス夫妻">
+    </div>
+    <div class="gallery-item">
+      <img src="images/photo2.jpeg" alt="ホブス夫妻 海辺のカフェ">
+    </div>
+    <div class="gallery-item">
+      <img src="images/photo3.jpeg" alt="ホブス夫妻 海辺にて">
+    </div>
+    <div class="gallery-item">
+      <img src="images/photo4.jpeg" alt="ホブス夫妻 打ち合わせ">
+    </div>
+  </div>
+
+  <!-- VOICE -->
+  <section id="voice">
+    <div class="container">
+      <div class="services-intro fade-up">
+        <p class="section-label">Customer Voice</p>
+        <h2 class="section-title">お客様の声</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="voice-grid">
+        <div class="voice-card fade-up">
+          <p class="voice-text">
+            外国人スタッフとのコミュニケーションに悩んでいましたが、マーティさんの研修で現場が劇的に変わりました。スタッフ全員が自信を持って英語対応できるようになっています。
+          </p>
+          <div class="voice-author">
+            <span>飲食店経営者 S様</span>
+            インバウンド接客支援ご利用
+          </div>
+        </div>
+        <div class="voice-card fade-up">
+          <p class="voice-text">
+            みさ先生のWebマーケティングのアドバイスで、問い合わせ数が3倍になりました。グローバルな視点と日本のビジネス感覚のバランスが絶妙です。
+          </p>
+          <div class="voice-author">
+            <span>中小企業経営者 T様</span>
+            経営コンサルティングご利用
+          </div>
+        </div>
+        <div class="voice-card fade-up">
+          <p class="voice-text">
+            28年のキャリアに裏打ちされた指導で、半年でTOEICのスコアが200点アップ。仕事での英語も臆せず使えるようになりました。本当に感謝しています。
+          </p>
+          <div class="voice-author">
+            <span>会社員 M様（40代）</span>
+            英語コーチングご利用
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="fade-up">
+          <p class="section-label">Contact</p>
+          <h2 class="section-title">まずは<br><span>無料相談</span>から</h2>
+          <div class="section-divider"></div>
+          <p class="section-desc" style="margin-bottom:2rem">
+            サービスについてのご質問、お見積もり、初回無料相談はこちらからお気軽にお問い合わせください。2営業日以内にご返信いたします。
+          </p>
+          <img src="images/photo4.jpeg" alt="ホブス夫妻 打ち合わせ" class="contact-image">
+        </div>
+        <div class="fade-up">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSds4CGRLdJeetk_OV4jx4uXXFqHaiOv3yh-z9RvfEarBX-T0w/viewform?embedded=true"
+            width="100%"
+            height="820"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            style="border:none; max-width:100%;"
+          >読み込んでいます…</iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-en">HOBBS PARTNERS</div>
+          <div class="footer-logo-ja">ホブス夫妻 公式サイト</div>
+          <p class="footer-brand-desc">
+            言葉と文化の壁を越え、<br>
+            ワンランク上のサービスを世界へ。<br>
+            グローバルな視点で、あなたのビジネスを支援します。
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="#services">Service A：インバウンド接客支援</a></li>
+            <li><a href="#services">Service B：英語コーチング</a></li>
+            <li><a href="#services">Service C：経営・Webマーケティング</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">About</div>
+          <ul class="footer-links">
+            <li><a href="#about">ホブス夫妻について</a></li>
+            <li><a href="#media">実績・メディア掲載</a></li>
+            <li><a href="#voice">お客様の声</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="#contact">お問い合わせ</a></li>
+            <li><a href="#contact">無料相談申し込み</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 Hobbs Partners. All rights reserved.</div>
+        <div class="footer-sns">
+          <a href="#" class="sns-btn" aria-label="Instagram">📷</a>
+          <a href="#" class="sns-btn" aria-label="Facebook">f</a>
+          <a href="#" class="sns-btn" aria-label="LINE">L</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-up scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Stagger service cards
+    document.querySelectorAll('.service-card').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.1}s`;
+    });
+
+    // Mobile menu (placeholder toggle)
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    function openMenu() {
+      navLinks.style.display = 'flex';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.position = 'absolute';
+      navLinks.style.top = '72px';
+      navLinks.style.left = '0';
+      navLinks.style.right = '0';
+      navLinks.style.zIndex = '999';
+      navLinks.style.background = 'rgba(8,24,64,0.98)';
+      navLinks.style.padding = '1rem 2rem 2rem';
+      navLinks.style.gap = '1rem';
+    }
+
+    function closeMenu() {
+      navLinks.style.display = 'none';
+    }
+
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.style.display === 'flex';
+      open ? closeMenu() : openMenu();
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  </script>
+</body>
+</html>
